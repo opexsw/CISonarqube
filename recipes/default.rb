@@ -1,11 +1,7 @@
-#
 # Cookbook Name:: CISonarqube
-# Recipe:: sonarqube
-#
-# Copyright 2015, Opex Software
-#
+# Recipe:: default
+# Copyright 2015, Opex Software,Pune
 # All rights reserved - Do Not Redistribute
-#
 
 =begin
 # PHP tools Recipe
