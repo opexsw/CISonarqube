@@ -50,6 +50,12 @@ package "sonar" do
  action :install
 end
 
+template "/tmp/sqlcmds.sql" do
+  source "sqlcmds.sql"
+  mode "0755"
+  owner "sonar"
+end
+
 # Defined SonarQube Service
 
 service 'sonar' do
@@ -62,4 +68,9 @@ template "/opt/sonar/conf/sonar.properties" do
   mode "600"
   owner "sonar"
   notifies :restart, 'service[sonar]', :immediately
+end
+
+execute "Run commands to set the database" do
+  command "sudo /usr/bin/mysql -u root --password=password  mysql   < /tmp/sqlcmds.sql > /tmp/op"
+  action :run
 end
