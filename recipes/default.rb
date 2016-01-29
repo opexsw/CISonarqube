@@ -13,6 +13,9 @@ include_recipe 'phpTools::default'
 include_recipe 'php'
 =end
 
+#Needed to install mysql database needed by sonarqube
+include_recipe 'mysql-simple::default'
+
 # Package required for mysql gem installation
 
 package "libmysqlclient-dev" do
